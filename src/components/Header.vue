@@ -1,0 +1,60 @@
+<template>
+  <div class="Header">
+    <v-app-bar color="red" dark>
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-toolbar-title>Vipul's About</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <!-- think about this later, to add some additional feature
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn> -->
+      <!-- add search box functionality here
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn> -->
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list-item>
+        <v-list-item-avatar size="5em">
+          <v-img src="https://classupl.sirv.com/vipulsabout/photo.jpeg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>Sai Vipul Mohan</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.route" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-subtitle>{{ item.subtitle }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header",
+  data: () => ({
+    drawer: null,
+    items: [
+      { title: "Home", icon: "mdi-view-dashboard", subtitle: "you landed here", route: "/" },
+      { title: "Bio", icon: "mdi-account", subtitle: "me in detail", route: "bio" },
+      { title: "Schooling", icon: "mdi-school", subtitle: "performance in school", route: "schooling" },
+      { title: "Works", icon: "mdi-laptop", subtitle: "proud of it", route: "works"},
+      { title: "Resume", icon: "mdi-file-document", subtitle: "download it", route: "resume" },
+      { title: "Contact", icon: "mdi-forum", subtitle: "get in touch", route: "contact" },
+    ],
+  }),
+};
+</script>
