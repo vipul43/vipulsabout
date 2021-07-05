@@ -1,14 +1,19 @@
 <template>
   <div>
-    <pdf v-for="i in numPages" :key="i" :src="src" :page="i"></pdf>
+    <v-btn
+      class="ma-2"
+      outlined
+      href="https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
+      download="vipul_core_cv"
+    >
+      Download PDF
+    </v-btn>
+    <pdf v-for="p in numPages" :key="p" :src="src" :page="p"></pdf>
   </div>
 </template>
 
 <script>
 import pdf from "vue-pdf";
-var loadingTask = pdf.createLoadingTask(
-  "https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
-);
 
 export default {
   name: "Resume",
@@ -16,10 +21,13 @@ export default {
     pdf,
   },
   data: () => ({
-    src: loadingTask,
+    src: undefined,
     numPages: 0,
   }),
   mounted() {
+    this.src = pdf.createLoadingTask(
+      "https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
+    );
     this.src.promise.then((pdf) => {
       this.numPages = pdf.numPages;
     });
