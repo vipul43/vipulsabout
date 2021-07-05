@@ -3,8 +3,8 @@
     <v-btn
       class="ma-2"
       outlined
-      href="https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
-      download="vipul_core_cv"
+      href="https://vipul43.sirv.com/vipulsabout/resume.pdf"
+      download="resume"
     >
       Download PDF
     </v-btn>
@@ -35,7 +35,7 @@ export default {
   }),
   mounted() {
     this.src = pdf.createLoadingTask(
-      "https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
+      "https://vipul43.sirv.com/vipulsabout/resume.pdf"
     );
     this.src.promise.then((pdf) => {
       this.numPages = pdf.numPages;
