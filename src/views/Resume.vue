@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="show">
     <v-btn
       class="ma-2"
       outlined
@@ -9,6 +9,14 @@
       Download PDF
     </v-btn>
     <pdf v-for="p in numPages" :key="p" :src="src" :page="p"></pdf>
+  </v-container>
+  <v-container v-else>
+    <v-progress-circular
+      indeterminate
+      :size="70"
+      :width="7"
+      color="light-black"
+    ></v-progress-circular>
   </v-container>
 </template>
 
@@ -21,6 +29,7 @@ export default {
     pdf,
   },
   data: () => ({
+    show: false,
     src: undefined,
     numPages: 0,
   }),
@@ -31,6 +40,9 @@ export default {
     this.src.promise.then((pdf) => {
       this.numPages = pdf.numPages;
     });
+    setTimeout(() => {
+      this.show = true;
+    }, 2000);
   },
 };
 </script>
