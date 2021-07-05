@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-btn
       class="ma-2"
       outlined
@@ -9,7 +9,7 @@
       Download PDF
     </v-btn>
     <pdf v-for="p in numPages" :key="p" :src="src" :page="p"></pdf>
-  </div>
+  </v-container>
 </template>
 
 <script>
