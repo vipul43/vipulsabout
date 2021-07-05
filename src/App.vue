@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <v-app class="vapp">
     <Header />
     <router-view />
-  </div>
+  </v-app>
 </template>
 
 <style lang="scss">
-#app {
+.vapp {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

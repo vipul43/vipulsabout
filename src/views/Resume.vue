@@ -1,3 +1,6 @@
 <template>
-    <h2>this is Resume page</h2>
+  <embed
+    src="https://vipul43.sirv.com/vipulsabout/vipul_core_cv.pdf"
+    height="100%"
+  />
 </template>
