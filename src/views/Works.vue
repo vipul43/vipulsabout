@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="fill-height" align="center" justify="center">
+    <v-row>
       <v-col v-for="(item, i) in items" :key="i" cols="12">
         <v-hover v-slot="{ hover }">
           <v-card
@@ -60,6 +60,7 @@
         :items="allWorks"
         :search="search"
         @click:row="handleClick"
+        mobile-breakpoint
       ></v-data-table>
     </v-card>
   </v-container>
