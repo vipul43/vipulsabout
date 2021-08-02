@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="fill-height" align="center" justify="center">
-      <v-col v-for="(item, i) in items" :key="i" cols="4">
+      <v-col v-for="(item, i) in items" :key="i" cols="12">
         <v-hover v-slot="{ hover }">
           <v-card
             class="mx-auto"
