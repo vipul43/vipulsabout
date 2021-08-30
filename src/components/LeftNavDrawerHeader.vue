@@ -1,19 +1,6 @@
 <template>
-  <div class="Header">
-    <v-app-bar color="light-black" dark>
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>Vipul's About</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <!-- think about this later, to add some additional feature
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn> -->
-      <!-- add search box functionality here
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn> -->
-    </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+  <v-container>
+    <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-avatar size="5em">
           <v-img
@@ -25,9 +12,7 @@
           <v-list-item-title>Sai Vipul Mohan</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-
       <v-divider></v-divider>
-
       <v-list>
         <v-list-item
           v-for="item in items"
@@ -46,12 +31,23 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </div>
+    <v-app-bar color="light-black" dark app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Vipul's About</v-toolbar-title>
+      <!-- <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn> -->
+    </v-app-bar>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: "Header",
+  name: "LeftNavDrawerHeader",
   data: () => ({
     drawer: null,
     items: [

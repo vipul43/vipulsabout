@@ -1,7 +1,9 @@
 <template>
   <v-app class="vapp">
-    <Header />
-    <router-view />
+    <LeftNavDrawerHeader />
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
@@ -15,12 +17,12 @@
 </style>
 
 <script>
-import Header from "@/components/Header.vue";
+import LeftNavDrawerHeader from "@/components/LeftNavDrawerHeader.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
+    LeftNavDrawerHeader,
   },
 };
 </script>
