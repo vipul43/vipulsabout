@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="show">
+  <div id="pdfvuer">
     <v-btn
       class="ma-2"
       outlined
@@ -8,41 +8,54 @@
     >
       Download PDF
     </v-btn>
-    <pdf v-for="p in numPages" :key="p" :src="src" :page="p"></pdf>
-  </v-container>
-  <v-container v-else>
-    <v-progress-circular
-      indeterminate
-      :size="70"
-      :width="7"
-      color="light-black"
-    ></v-progress-circular>
-  </v-container>
+    <pdf
+      :src="pdfdata"
+      v-for="i in numPages"
+      :key="i"
+      :id="i"
+      :page="i"
+      :scale.sync="scale"
+      style="width: 100%; margin: 20px auto"
+      :annotation="true"
+      :resize="true"
+      @link-clicked="handle_pdf_link"
+    >
+    </pdf>
+  </div>
 </template>
 
 <script>
-import pdf from "vue-pdf";
+import pdfvuer from "pdfvuer";
 
 export default {
   name: "Resume",
   components: {
-    pdf,
+    pdf: pdfvuer,
   },
-  data: () => ({
-    show: false,
-    src: undefined,
-    numPages: 0,
-  }),
+  data() {
+    return {
+      page: 1,
+      numPages: 0,
+      pdfdata: undefined,
+      scale: "page-width",
+    };
+  },
   mounted() {
-    this.src = pdf.createLoadingTask(
-      "https://vipul43.sirv.com/vipulsabout/resume.pdf"
-    );
-    this.src.promise.then((pdf) => {
-      this.numPages = pdf.numPages;
-    });
-    setTimeout(() => {
-      this.show = true;
-    }, 2000);
+    this.getPdf();
+  },
+  methods: {
+    handle_pdf_link: function (params) {
+      var page = document.getElementById(String(params.pageNumber));
+      page.scrollIntoView();
+    },
+    getPdf() {
+      this.pdfdata = pdfvuer.createLoadingTask(
+        "https://vipul43.sirv.com/vipulsabout/resume.pdf"
+      );
+      this.pdfdata.then((pdf) => {
+        this.numPages = pdf.numPages;
+      });
+    },
   },
 };
 </script>
