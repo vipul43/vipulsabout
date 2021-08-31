@@ -88,8 +88,8 @@ export default {
         subtitle:
           "A simple todo list app made using django and hosted using heroku💯",
         size: 300,
-        demo: "https://github.com/vipul43/todo-list43",
-        work: "https://todo-list43.herokuapp.com",
+        demo: "https://todo-list43.herokuapp.com",
+        work: "https://github.com/vipul43/todo-list43",
       },
       {
         color: "#000000",
