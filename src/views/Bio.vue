@@ -1,23 +1,25 @@
 <template>
-  <v-timeline align-top :dense="$vuetify.breakpoint.smAndDown">
-    <v-timeline-item
-      v-for="(item, i) in items"
-      :key="i"
-      :color="item.color"
-      :icon="item.icon"
-      fill-dot
-    >
-      <v-card :color="item.color" dark>
-        <v-card-title class="text-h6"> {{ item.title }} </v-card-title>
-        <v-card-text class="white text--primary">
-          <p>
-            {{ item.content }}
-          </p>
-          <v-btn :color="item.color" class="mx-0" outlined> Know More </v-btn>
-        </v-card-text>
-      </v-card>
-    </v-timeline-item>
-  </v-timeline>
+  <v-container>
+    <v-timeline align-top :dense="$vuetify.breakpoint.smAndDown">
+      <v-timeline-item
+        v-for="(item, i) in items"
+        :key="i"
+        :color="item.color"
+        :icon="item.icon"
+        fill-dot
+      >
+        <v-card :color="item.color" dark>
+          <v-card-title class="text-h6"> {{ item.title }} </v-card-title>
+          <v-card-text class="white text--primary">
+            <p>
+              {{ item.content }}
+            </p>
+            <v-btn :color="item.color" class="mx-0" outlined> Know More </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
+  </v-container>
 </template>
 
 <script>
