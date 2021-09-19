@@ -41,7 +41,7 @@
     <v-row>
       <v-col>
         <validation-observer ref="observer" v-slot="{ invalid }">
-          <form @submit.prevent="submit">
+          <form @submit.prevent="sendEmail">
             <validation-provider
               v-slot="{ errors }"
               name="Name"
@@ -59,7 +59,7 @@
             <validation-provider
               v-slot="{ errors }"
               name="phoneNumber"
-              rules="digits:10"
+              rules="digits:10|regex:^[0-9]{10}$"
             >
               <v-text-field
                 outlined
@@ -84,26 +84,43 @@
             </validation-provider>
             <validation-provider
               v-slot="{ errors }"
-              name="content"
+              name="message"
               rules="required|max:1024"
             >
               <v-textarea
                 outlined
                 clearable
-                v-model="content"
+                v-model="message"
                 :counter="1024"
                 :error-messages="errors"
-                label="Content"
+                label="Message"
                 required
               ></v-textarea>
             </validation-provider>
 
-            <v-btn class="mr-4" type="submit" :disabled="invalid">
+            <v-btn
+              class="mr-4 primary"
+              type="submit"
+              :disabled="invalid || disable"
+              @click="snackbar = true"
+            >
               submit
             </v-btn>
             <v-btn @click="clear"> clear </v-btn>
           </form>
         </validation-observer>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-snackbar v-model="snackbar" :timeout="timeout" :multi-line="true">
+          {{ text }}
+          <template v-slot:action="{ attrs }">
+            <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
       </v-col>
     </v-row>
   </v-container>
@@ -117,6 +134,7 @@ import {
   ValidationProvider,
   setInteractionMode,
 } from "vee-validate";
+import emailjs from "emailjs-com";
 
 setInteractionMode("eager");
 
@@ -155,8 +173,11 @@ export default {
     name: "",
     phoneNumber: "",
     email: "",
-    content: "",
-    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+    message: "",
+    disable: false,
+    snackbar: false,
+    text: "Your message reached my inbox. Please wait for my response.",
+    timeout: 5000,
   }),
 
   methods: {
@@ -167,8 +188,23 @@ export default {
       this.name = "";
       this.phoneNumber = "";
       this.email = "";
-      this.content = "";
+      this.message = "";
+      this.disable = true;
       this.$refs.observer.reset();
+    },
+    sendEmail() {
+      emailjs.send(
+        "vipulsabout_contact",
+        "vipulsabout_email",
+        {
+          name: this.name,
+          email: this.email,
+          message: this.message,
+          phoneNumber: this.phoneNumber,
+        },
+        "user_Ok0BUYLvcOhkkvVKPrLLV"
+      );
+      this.clear();
     },
   },
 };
