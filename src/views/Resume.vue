@@ -4,7 +4,7 @@
       <v-btn
         class="ma-2"
         outlined
-        href="https://vipul43.sirv.com/vipulsabout/resume.pdf"
+        href="https://vipul43.sirv.com/vipulsabout/vipul_resume.pdf"
         download="resume"
       >
         Download PDF
@@ -52,7 +52,7 @@ export default {
     },
     getPdf() {
       this.pdfdata = pdfvuer.createLoadingTask(
-        "https://vipul43.sirv.com/vipulsabout/resume.pdf"
+        "https://vipul43.sirv.com/vipulsabout/vipul_resume.pdf"
       );
       this.pdfdata.then((pdf) => {
         this.numPages = pdf.numPages;
