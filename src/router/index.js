@@ -6,6 +6,7 @@ import Schooling from '../views/Schooling.vue'
 import Works from '../views/Works.vue'
 import Resume from '../views/Resume.vue'
 import Contact from '../views/Contact.vue'
+import NotFound from '../views/Errors/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound
   },
 
 ]

@@ -1,27 +1,29 @@
 <template>
-  <div id="pdfvuer">
-    <v-btn
-      class="ma-2"
-      outlined
-      href="https://vipul43.sirv.com/vipulsabout/resume.pdf"
-      download="resume"
-    >
-      Download PDF
-    </v-btn>
-    <pdf
-      :src="pdfdata"
-      v-for="i in numPages"
-      :key="i"
-      :id="i"
-      :page="i"
-      :scale.sync="scale"
-      style="width: 100%; margin: 20px auto"
-      :annotation="true"
-      :resize="true"
-      @link-clicked="handle_pdf_link"
-    >
-    </pdf>
-  </div>
+  <v-container>
+    <div id="pdfvuer">
+      <v-btn
+        class="ma-2"
+        outlined
+        href="https://vipul43.sirv.com/vipulsabout/vipul_resume.pdf"
+        download="resume"
+      >
+        Download PDF
+      </v-btn>
+      <pdf
+        :src="pdfdata"
+        v-for="i in numPages"
+        :key="i"
+        :id="i"
+        :page="i"
+        :scale.sync="scale"
+        style="width: 100%; margin: 20px auto"
+        :annotation="true"
+        :resize="true"
+        @link-clicked="handle_pdf_link"
+      >
+      </pdf>
+    </div>
+  </v-container>
 </template>
 
 <script>
@@ -50,7 +52,7 @@ export default {
     },
     getPdf() {
       this.pdfdata = pdfvuer.createLoadingTask(
-        "https://vipul43.sirv.com/vipulsabout/resume.pdf"
+        "https://vipul43.sirv.com/vipulsabout/vipul_resume.pdf"
       );
       this.pdfdata.then((pdf) => {
         this.numPages = pdf.numPages;
