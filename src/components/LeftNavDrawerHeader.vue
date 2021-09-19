@@ -34,13 +34,64 @@
     <v-app-bar color="light-black" dark app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Vipul's About</v-toolbar-title>
-      <!-- <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="likesDialog = true">
         <v-icon>mdi-heart</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn> -->
+      <v-dialog
+        v-model="likesDialog"
+        transition="dialog-bottom-transition"
+        max-width="600"
+      >
+        <v-card>
+          <v-toolbar color="light-black" dark>Likes Count</v-toolbar>
+          <v-card-text>
+            <div class="text-h2 pa-12">
+              This feature will be available soon!!!
+            </div>
+          </v-card-text>
+          <v-card-actions class="justify-end">
+            <v-btn @click="likesDialog = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+      <v-autocomplete
+        v-model="selectedSearchItem"
+        :items="searchItems"
+        cache-items
+        class="shrink"
+        flat
+        item-value="url"
+        item-text="title"
+        prepend-inner-icon="mdi-magnify"
+        hide-details
+        label="Wanna know anything?"
+        solo-inverted
+      ></v-autocomplete>
+      <v-btn @click="statsDialog = true" icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+      <v-dialog
+        v-model="statsDialog"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+      >
+        <v-card>
+          <v-toolbar color="light-black" dark>
+            <v-btn icon dark @click="statsDialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-toolbar-title>Website Statistics</v-toolbar-title>
+            <v-spacer></v-spacer>
+          </v-toolbar>
+          <v-card-text>
+            <div class="text-h2 pa-12">
+              This feature will be available soon!!!
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
     </v-app-bar>
   </v-container>
 </template>
@@ -88,6 +139,25 @@ export default {
         route: "contact",
       },
     ],
+    searchItems: [
+      { title: "Home", url: "/" },
+      { title: "Bio", url: "/bio" },
+      { title: "Schooling", url: "/schooling" },
+      { title: "Works", url: "/works" },
+      { title: "Resume", url: "/resume" },
+      { title: "Contact", url: "/contact" },
+    ],
+    selectedSearchItem: null,
+    statsDialog: false,
+    likesDialog: false,
   }),
+  watch: {
+    selectedSearchItem: (val) => {
+      console.log(val);
+      if (val != null) {
+        window.location.href = val;
+      }
+    },
+  },
 };
 </script>
