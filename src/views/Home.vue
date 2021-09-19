@@ -2,12 +2,16 @@
   <v-container>
     <v-row class="mb-4">
       <v-col>
-        <v-card-text>
-          "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola
-          imperdiet nec ut, sed euismod convenire principes at. Est et nobis
-          iisque percipit, an vim zril disputando voluptatibus, vix an salutandi
-          sententiae."
-        </v-card-text>
+        <v-textarea
+          outlined
+          name="input-7-1"
+          label="Intro"
+          background-color="amber lighten-4"
+          color="orange orange-darken-4"
+          auto-grow
+          autofocus
+          value="You landed at a very exciting place, my 'about' site. Sorry, excuse my manners!! I am Sai Vipul Mohan. Currently Studying Bachelor of Technology at Indian Institute of Technology Palakkad. My major is Computer Science and Engineering. Yes, I am a nerd. In fact, happy to be. I ask you to explore this website to learn more about me and my works, you know, some might be really helpful to you. But it's mostly about me, you know I am a very interesting person. After going through all he stuff, if you are really interested to know more about me or my works please do contact me. You can find my contact details in Contact page. Nice talking to you. Bye👋"
+        ></v-textarea>
       </v-col>
       <v-col>
         <a href="https://github.com/vipul43">
