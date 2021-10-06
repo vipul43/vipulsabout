@@ -138,6 +138,18 @@ export default {
         subtitle: "get in touch",
         route: "contact",
       },
+      {
+        title: "Blog",
+        icon: "mdi-monitor",
+        subtitle: "friday frenzy",
+        route: "blog",
+      },
+      {
+        title: "Book",
+        icon: "mdi-book-multiple",
+        subtitle: "the conundrum of life",
+        route: "book",
+      }
     ],
     searchItems: [
       { title: "Home", url: "/" },
@@ -146,6 +158,8 @@ export default {
       { title: "Works", url: "/works" },
       { title: "Resume", url: "/resume" },
       { title: "Contact", url: "/contact" },
+      { title: "Blog", url: "/blog" },
+      { title: "Book", url: "/book" },
     ],
     selectedSearchItem: null,
     statsDialog: false,

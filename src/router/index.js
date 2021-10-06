@@ -7,6 +7,8 @@ import Works from '../views/Works.vue'
 import Resume from '../views/Resume.vue'
 import Contact from '../views/Contact.vue'
 import NotFound from '../views/Errors/NotFound.vue'
+import Blog from '../views/Blog.vue'
+import Book from '../views/Book.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +42,16 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: Contact
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: Blog
+  },
+  {
+    path: '/book',
+    name: 'Book',
+    component: Book
   },
   {
     path: '*',
