@@ -35,7 +35,7 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Vipul's About</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click="likesDialog = true">
+      <v-btn icon @click="handleLikesDialog">
         <v-icon>mdi-heart</v-icon>
       </v-btn>
       <v-dialog
@@ -46,11 +46,14 @@
         <v-card>
           <v-toolbar color="light-black" dark>Likes Count</v-toolbar>
           <v-card-text>
-            <div class="text-h2 pa-12">
-              This feature will be available soon!!!
-            </div>
+            <div class="text-h2 pa-12" v-if="likes != null">{{ likes }}</div>
+            <div class="text-h2 pa-12" v-else>Fetching likes data</div>
           </v-card-text>
-          <v-card-actions class="justify-end">
+          <v-card-actions>
+            <v-btn @click="updateLikesCount" :disabled="alreadyClicked"
+              >+</v-btn
+            >
+            <v-spacer></v-spacer>
             <v-btn @click="likesDialog = false">Close</v-btn>
           </v-card-actions>
         </v-card>
@@ -97,6 +100,7 @@
 </template>
 
 <script>
+import { getLikesCount, incrLikesCount } from "../firebase.js";
 export default {
   name: "LeftNavDrawerHeader",
   data: () => ({
@@ -150,13 +154,34 @@ export default {
     selectedSearchItem: null,
     statsDialog: false,
     likesDialog: false,
+    likes: null,
+    alreadyClicked: false,
   }),
   watch: {
-    selectedSearchItem: (val) => {
+    selectedSearchItem: function (val) {
       console.log(val);
       if (val != null) {
         window.location.href = val;
       }
+    },
+    likesDialog: async function (val) {
+      if (val) {
+        this.likes = await getLikesCount();
+      }
+    },
+  },
+  methods: {
+    handleLikesDialog: function () {
+      this.likesDialog = true;
+      this.getLikesCount();
+    },
+    getLikesCount: async function () {
+      this.likes = await getLikesCount();
+    },
+    updateLikesCount: async function () {
+      this.likes += 1;
+      incrLikesCount();
+      this.alreadyClicked = true;
     },
   },
 };
