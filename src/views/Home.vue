@@ -2,16 +2,9 @@
   <v-container>
     <v-row class="mb-4">
       <v-col>
-        <v-textarea
-          outlined
-          name="input-7-1"
-          label="Intro"
-          background-color="amber lighten-4"
-          color="orange orange-darken-4"
-          auto-grow
-          autofocus
-          value="You landed at a very exciting place, my 'about' site. Sorry, excuse my manners!! I am Sai Vipul Mohan. Currently Studying Bachelor of Technology at the Indian Institute of Technology Palakkad. My major is Computer Science and Engineering. Yes, I am a nerd. In fact, happy to be. I ask you to explore this website to learn more about me and my works, you know, some might be really helpful to you. But it's mostly about me, you know I am a very interesting person. After going through all the stuff, if you are really interested to know more about me or my works please do contact me. You can find my contact details on the Contact page. Nice talking to you. Bye👋"
-        ></v-textarea>
+        <p class="font-weight-light text-h5">
+          You landed at a very exciting place, my 'about' site. Sorry, excuse my manners!! I am Sai Vipul Mohan. Currently Studying Bachelor of Technology at the Indian Institute of Technology Palakkad. My major is Computer Science and Engineering. Yes, I am a nerd. In fact, happy to be. I ask you to explore this website to learn more about me and my works, you know, some might be really helpful to you. But it's mostly about me, you know I am a very interesting person. After going through all the stuff, if you are really interested to know more about me or my works please do contact me. You can find my contact details on the Contact page. Nice talking to you. Bye👋
+        </p>
       </v-col>
       <v-col>
         <a href="https://github.com/vipul43">
