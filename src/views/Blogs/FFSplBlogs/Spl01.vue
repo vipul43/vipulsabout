@@ -1,5 +1,12 @@
 <template>
-  <v-container>
+  <v-container class="blog-background">
     <div class="font-weight-light text-h2 text-center">Special 01</div>
   </v-container>
 </template>
+
+<style>
+.blog-background {
+  background: url("https://vipul43.sirv.com/vipulsabout/dot-grid.png") repeat;
+  height: 100vh;
+}
+</style>

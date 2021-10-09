@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="blog-background">
     <!-- card -->
     <v-card color="basil">
       <!-- card title -->
@@ -116,5 +116,9 @@ export default {
 }
 .basil--text {
   color: #553e4e !important;
+}
+.blog-background {
+  background: url("https://vipul43.sirv.com/vipulsabout/dot-grid.png") repeat;
+  height: 100vh;
 }
 </style>
