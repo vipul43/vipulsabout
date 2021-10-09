@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <h2>Coming Soon...</h2>
-    <p class="font-weight-light text-h1 text-center">
+    <div class="font-weight-light text-h2 text-center">
       The Conundrum of life
-    </p>
+    </div>
   </v-container>
 </template>
