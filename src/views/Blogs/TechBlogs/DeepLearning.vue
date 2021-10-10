@@ -3,6 +3,7 @@
     <div class="font-weight-light text-h2 text-center">
       Deep Learning
       <v-btn
+        v-show="!edit"
         class="mx-2"
         fab
         dark
@@ -11,6 +12,20 @@
         @click="edit = !edit"
       >
         <v-icon dark> mdi-pencil </v-icon>
+      </v-btn>
+      <v-btn
+        v-show="edit"
+        class="mx-2"
+        fab
+        dark
+        small
+        color="light-black"
+        @click="
+          edit = !edit;
+          saveToDb();
+        "
+      >
+        <v-icon dark> mdi-content-save </v-icon>
       </v-btn>
     </div>
 
@@ -41,6 +56,9 @@ export default {
       // The configuration of the editor.
     },
   }),
+  methods: {
+    saveToDb() {},
+  },
 };
 </script>
 
