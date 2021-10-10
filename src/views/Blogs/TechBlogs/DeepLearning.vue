@@ -1,11 +1,30 @@
 <template>
   <v-container class="blog-background">
-    <div class="font-weight-light text-h2 text-center">Deep Learning</div>
+    <div class="font-weight-light text-h2 text-center">
+      Deep Learning
+      <v-btn
+        class="mx-2"
+        fab
+        dark
+        small
+        color="light-black"
+        @click="edit = !edit"
+      >
+        <v-icon dark> mdi-pencil </v-icon>
+      </v-btn>
+    </div>
+
     <ckeditor
+      v-if="edit"
       :editor="editor"
       v-model="editorData"
       :config="editorConfig"
     ></ckeditor>
+    <div
+      class="font-weight-light text-h6 text-center"
+      v-else
+      v-html="editorData"
+    ></div>
   </v-container>
 </template>
 
@@ -15,7 +34,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 export default {
   name: "DeepLearning",
   data: () => ({
-    admin: true,
+    edit: false,
     editor: ClassicEditor,
     editorData: "",
     editorConfig: {
