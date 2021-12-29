@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_WEB_API_KEY,
@@ -10,3 +11,21 @@ const firebaseConfig = {
     measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
+const app = initializeApp(firebaseConfig);
+
+
+const db = getFirestore(app);
+
+export const getTechBlog = async (techBlogName) => {
+    const techBlogRef = doc(db, 'techblogs', techBlogName);
+    const techblog = await getDoc(techBlogRef);
+    if (techblog.exists()) {
+        return techblog.data().value;
+    }
+    return "No Blog With This Title Written Yet.";
+}
+
+export const updateTechBlog = async (techBlogName, data) => {
+    var techBlogRef = doc(db, 'techblogs', techBlogName);
+    await setDoc(techBlogRef, data);
+}

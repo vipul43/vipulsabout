@@ -45,6 +45,7 @@
 
 <script>
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { getTechBlog, updateTechBlog } from "../../../firebase.js";
 
 export default {
   name: "DeepLearning",
@@ -56,8 +57,13 @@ export default {
       // The configuration of the editor.
     },
   }),
+  async mounted() {
+    this.editorData = await getTechBlog(this.$options.name);
+  },
   methods: {
-    saveToDb() {},
+    async saveToDb() {
+      await updateTechBlog(this.$options.name, { value: this.editorData });
+    },
   },
 };
 </script>
