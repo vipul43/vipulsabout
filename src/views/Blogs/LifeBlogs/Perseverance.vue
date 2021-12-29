@@ -45,7 +45,7 @@
 
 <script>
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { getTechBlog, updateTechBlog } from "../../../firebase.js";
+import { getBlog, updateBlog } from "../../../firebase.js";
 
 export default {
   name: "Perseverance",
@@ -58,11 +58,13 @@ export default {
     },
   }),
   async mounted() {
-    this.editorData = await getTechBlog(this.$options.name);
+    this.editorData = await getBlog("lifeblogs", this.$options.name);
   },
   methods: {
     async saveToDb() {
-      await updateTechBlog(this.$options.name, { value: this.editorData });
+      await updateBlog("lifeblogs", this.$options.name, {
+        value: this.editorData,
+      });
     },
   },
 };

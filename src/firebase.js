@@ -16,30 +16,16 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const getTechBlog = async (techBlogName) => {
-    const techBlogRef = doc(db, 'techblogs', techBlogName);
-    const techblog = await getDoc(techBlogRef);
-    if (techblog.exists()) {
-        return techblog.data().value;
+export const getBlog = async (blogType, blogName) => {
+    const blogRef = doc(db, blogType, blogName);
+    const blogSnap = await getDoc(blogRef);
+    if (blogSnap.exists()) {
+        return blogSnap.data().value;
     }
     return "No Blog With This Title Written Yet.";
 }
 
-export const updateTechBlog = async (techBlogName, data) => {
-    var techBlogRef = doc(db, 'techblogs', techBlogName);
-    await setDoc(techBlogRef, data);
-}
-
-export const getLifeBlog = async (lifeBlogName) => {
-    const lifeBlogRef = doc(db, 'lifeblogs', lifeBlogName);
-    const lifeblog = await getDoc(lifeBlogRef);
-    if (lifeblog.exists()) {
-        return lifeblog.data().value;
-    }
-    return "No Blog With This Title Written Yet.";
-}
-
-export const updateLifeBlog = async (lifeBlogName, data) => {
-    var lifeBlogRef = doc(db, 'lifeblogs', lifeBlogName);
-    await setDoc(lifeBlogRef, data);
+export const updateBlog = async (blogType, blogName, data) => {
+    var blogRef = doc(db, blogType, blogName);
+    await setDoc(blogRef, data);
 }
