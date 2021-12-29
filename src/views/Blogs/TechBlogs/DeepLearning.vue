@@ -36,7 +36,7 @@
       :config="editorConfig"
     ></ckeditor>
     <div
-      class="font-weight-light text-h6 text-center"
+      class="font-weight-light text-h6 text-left"
       v-else
       v-html="editorData"
     ></div>
