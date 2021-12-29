@@ -1,29 +1,73 @@
 <template>
   <v-container class="blog-background">
-    <div class="font-weight-light text-h2 text-center">Perseverance</div>
+    <div class="font-weight-light text-h2 text-center">
+      Perseverance
+      <v-btn
+        v-show="!edit"
+        class="mx-2"
+        fab
+        dark
+        small
+        color="light-black"
+        @click="edit = !edit"
+      >
+        <v-icon dark> mdi-pencil </v-icon>
+      </v-btn>
+      <v-btn
+        v-show="edit"
+        class="mx-2"
+        fab
+        dark
+        small
+        color="light-black"
+        @click="
+          edit = !edit;
+          saveToDb();
+        "
+      >
+        <v-icon dark> mdi-content-save </v-icon>
+      </v-btn>
+    </div>
+
     <ckeditor
+      v-if="edit"
       :editor="editor"
       v-model="editorData"
       :config="editorConfig"
     ></ckeditor>
+    <div
+      class="font-weight-light text-h6 text-center"
+      v-else
+      v-html="editorData"
+    ></div>
   </v-container>
 </template>
 
 <script>
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { getTechBlog, updateTechBlog } from "../../../firebase.js";
 
 export default {
-  name: "DeepLearning",
+  name: "Perseverance",
   data: () => ({
-    admin: true,
+    edit: false,
     editor: ClassicEditor,
     editorData: "",
     editorConfig: {
       // The configuration of the editor.
     },
   }),
+  async mounted() {
+    this.editorData = await getTechBlog(this.$options.name);
+  },
+  methods: {
+    async saveToDb() {
+      await updateTechBlog(this.$options.name, { value: this.editorData });
+    },
+  },
 };
 </script>
+
 
 <style>
 .blog-background {
