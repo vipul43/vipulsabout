@@ -29,3 +29,17 @@ export const updateTechBlog = async (techBlogName, data) => {
     var techBlogRef = doc(db, 'techblogs', techBlogName);
     await setDoc(techBlogRef, data);
 }
+
+export const getLifeBlog = async (lifeBlogName) => {
+    const lifeBlogRef = doc(db, 'lifeblogs', lifeBlogName);
+    const lifeblog = await getDoc(lifeBlogRef);
+    if (lifeblog.exists()) {
+        return lifeblog.data().value;
+    }
+    return "No Blog With This Title Written Yet.";
+}
+
+export const updateLifeBlog = async (lifeBlogName, data) => {
+    var lifeBlogRef = doc(db, 'lifeblogs', lifeBlogName);
+    await setDoc(lifeBlogRef, data);
+}
