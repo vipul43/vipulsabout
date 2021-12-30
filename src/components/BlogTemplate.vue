@@ -15,6 +15,13 @@
       v-else
       v-html="editorData"
     ></div>
+    <v-progress-circular
+      v-if="loading"
+      :size="70"
+      :width="7"
+      color="black"
+      indeterminate
+    ></v-progress-circular>
   </v-container>
 </template>
 
@@ -41,9 +48,14 @@ export default {
     editorConfig: {
       // The configuration of the editor.
     },
+    loading: false,
   }),
-  async mounted() {
-    this.editorData = await getBlog(this.blogType, this.blogName);
+  mounted() {
+    this.loading = true;
+    setTimeout(async () => {
+      this.editorData = await getBlog(this.blogType, this.blogName);
+      this.loading = false;
+    }, 100);
   },
 };
 </script>
