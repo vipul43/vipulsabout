@@ -9,6 +9,10 @@ import Contact from '../views/Contact.vue'
 import NotFound from '../views/Errors/NotFound.vue'
 import Blog from '../views/Blog.vue'
 import Book from '../views/Book.vue'
+import TechBlog from '../views/Blogs/TechBlogs/TechBlog.vue'
+import LifeBlog from '../views/Blogs/LifeBlogs/LifeBlog.vue'
+import FFSplBlog from '../views/Blogs/FFSplBlogs/FFSplBlog.vue'
+import CocktailBlog from '../views/Blogs/CocktailBlogs/CocktailBlog.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +56,30 @@ const routes = [
     path: '/book',
     name: 'Book',
     component: Book
+  },
+  {
+    path: '/blog/techblog/:title',
+    name: 'TechBlog',
+    component: TechBlog,
+    props: (route) => ({ selectedComp: route.params.title })
+  },
+  {
+    path: '/blog/lifeblog/:title',
+    name: 'LifeBlog',
+    component: LifeBlog,
+    props: (route) => ({ selectedComp: route.params.title })
+  },
+  {
+    path: '/blog/ffsplblog/:title',
+    name: 'FFSplBlog',
+    component: FFSplBlog,
+    props: (route) => ({ selectedComp: route.params.title })
+  },
+  {
+    path: '/blog/cocktailblog/:title',
+    name: 'CocktailBlog',
+    component: CocktailBlog,
+    props: (route) => ({ selectedComp: route.params.title })
   },
   {
     path: '*',

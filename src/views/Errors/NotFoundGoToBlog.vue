@@ -12,7 +12,7 @@
             </div>
             <br />
             <div class="paragraph-text mt-2">
-              Try going to <router-link to="/">home page</router-link> and
+              Try going to <router-link to="/blog">Blog page</router-link> and
               repeating your action.
             </div>
           </v-card>
