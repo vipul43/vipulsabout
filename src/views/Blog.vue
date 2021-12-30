@@ -61,7 +61,7 @@ export default {
       tab: null,
       items: [
         {
-          there: true,
+          there: false,
           tabTitle: "TECH",
           tabText:
             "Technical Blog every Friday introducing audience to the amazing tech world from a techie POV.",
@@ -75,7 +75,7 @@ export default {
           ],
         },
         {
-          there: true,
+          there: false,
           tabTitle: "LIFE",
           tabText:
             "Life Blog every Monday revealing the secrets of life from an introvert's perspective.",
