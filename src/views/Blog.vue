@@ -17,6 +17,18 @@
         <v-tab-item v-for="item in items" :key="item.tabText">
           <v-card color="basil" flat>
             <v-card-text>{{ item.tabText }}</v-card-text>
+            <vue-countdown-timer
+              :start-time="new Date()"
+              :end-time="'2021-12-31 15:00:00'"
+              :end-label="'Time left until next blog'"
+              label-position="begin"
+              :end-text="''"
+              :day-txt="' days '"
+              :hour-txt="' hours '"
+              :minutes-txt="' minutes '"
+              :seconds-txt="' seconds '"
+            >
+            </vue-countdown-timer>
           </v-card>
           <v-container v-if="item.there">
             <v-row dense>
