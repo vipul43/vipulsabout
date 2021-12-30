@@ -12,7 +12,8 @@
             </div>
             <br />
             <div class="paragraph-text mt-2">
-              Try going to <a href="/">home page</a> and repeating your action.
+              Try going to <router-link to="/">home page</router-link> and
+              repeating your action.
             </div>
           </v-card>
         </v-flex>

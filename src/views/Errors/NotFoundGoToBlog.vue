@@ -12,8 +12,8 @@
             </div>
             <br />
             <div class="paragraph-text mt-2">
-              Try going to <a href="/blog">Blog page</a> and repeating your
-              action.
+              Try going to <router-link to="/blog">Blog page</router-link> and
+              repeating your action.
             </div>
           </v-card>
         </v-flex>
