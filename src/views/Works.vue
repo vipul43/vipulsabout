@@ -120,7 +120,7 @@ export default {
     headers: [
       {
         text: "Work",
-        value: "work",
+        value: "title",
       },
       {
         text: "Description",
@@ -128,7 +128,7 @@ export default {
       },
       {
         text: "Repo",
-        value: "repo",
+        value: "work",
         align: " d-none",
       },
       {
@@ -138,94 +138,94 @@ export default {
     ],
     allWorks: [
       {
-        work: "Image Captioning",
+        title: "Image Captioning",
         desc: "Training Deep Learning models on Flickr8k Dataset to effectively caption an image. Non end-to-end implementation, transfer learning through InceptionResNetV2 along with imagenet weights and GloVe embeddings",
-        repo: "https://github.com/vipul43/image_captioning",
+        work: "https://github.com/vipul43/image_captioning",
         tags: ["DL", "ML", "AI", "python"],
       },
       {
-        work: "ToDo App",
+        title: "ToDo App",
         desc: "A simple todo list app made using django and hosted using heroku💯",
-        repo: "https://github.com/vipul43/todo-list43",
+        work: "https://github.com/vipul43/todo-list43",
         tags: ["web-dev", "django", "python"],
       },
       {
-        work: "Covid19 Tracker",
+        title: "Covid19 Tracker",
         desc: "A covid19 tracker which fetches worldwide covid19 cases data from 'disease.sh' and displays it using chartjs, leafletjs. This web app is built using reactjs and hosted using firebase😇",
-        repo: "https://github.com/vipul43/covid19_tracker",
+        work: "https://github.com/vipul43/covid19_tracker",
         tags: ["web-dev", "reactjs"],
       },
       {
-        work: "Enigma",
+        title: "Enigma",
         desc: "Mimicked the German encryption device using simple programming logic. This project displays the interconvertibility between electromechanical circuits and logical code🤓",
-        repo: "https://github.com/vipul43/project_Enigma",
+        work: "https://github.com/vipul43/project_Enigma",
         tags: ["python", "cryptography"],
       },
       {
-        work: "Python Automation",
+        title: "Python Automation",
         desc: "Automating boring repetitive stuff using python😎",
-        repo: "https://github.com/vipul43/python_automation",
+        work: "https://github.com/vipul43/python_automation",
         tags: ["python", "shell-scripting"],
       },
       {
-        work: "Draw",
+        title: "Draw",
         desc: "Simple 1400x750 drawing sheet with two commands. To undo(u) and to clear screen(␣). Draw using 🖱",
-        repo: "https://github.com/vipul43/draw",
+        work: "https://github.com/vipul43/draw",
         tags: ["p5js", "javascript"],
       },
       {
-        work: "Maze Gen",
+        title: "Maze Gen",
         desc: "Maze Generating visualisation using Depth First Search Algorithm. To pause the generation(␣) or resume(␣)👼🏻",
-        repo: "https://github.com/vipul43/maze_gen",
+        work: "https://github.com/vipul43/maze_gen",
         tags: ["p5js", "javascript"],
       },
       {
-        work: "p5.js",
+        title: "p5.js",
         desc: "Fun webpages built using p5 javascript library",
-        repo: "https://github.com/vipul43/fun_with_-p5.js-",
+        work: "https://github.com/vipul43/fun_with_-p5.js-",
         tags: ["p5js", "javascript"],
       },
       {
-        work: "Vipul's About",
+        title: "Vipul's About",
         desc: "Portfolio website made with vuejs",
-        repo: "https://github.com/vipul43/vipulsabout",
+        work: "https://github.com/vipul43/vipulsabout",
         tags: ["web-dev", "vuejs", "firebase-storage"],
       },
       {
-        work: "Face Mask Detection",
+        title: "Face Mask Detection",
         desc: "Detecting the faces of the people in the scene and classify them as with mask and without mask",
-        repo: "https://github.com/pulavartivinay/Face_Mask_Detection",
+        work: "https://github.com/pulavartivinay/Face_Mask_Detection",
         tags: ["DL", "ML", "AI", "python", "web-dev"],
       },
       {
-        work: "Django",
+        title: "Django",
         desc: "Sites created using django",
-        repo: "https://github.com/vipul43/django",
+        work: "https://github.com/vipul43/django",
         tags: ["django", "python"],
       },
       {
-        work: "Image Description",
+        title: "Image Description",
         desc: "Multi Label Classification, Multi Modal Classification and Image description deep learning models to solve Image Description task",
-        repo: "https://github.com/vipul43/image_description",
+        work: "https://github.com/vipul43/image_description",
         tags: ["DL", "ML", "AI", "python"],
       },
       {
-        work: "Artificial Intelligence",
+        title: "Artificial Intelligence",
         desc: "Artificial Intelligence Algorithms Implementation",
-        repo: "https://github.com/vipul43/AI",
+        work: "https://github.com/vipul43/AI",
         tags: ["AI", "ML", "DL", "python"],
       },
       {
-        work: "Operating Systems",
+        title: "Operating Systems",
         desc: "Lab assignments of CS3110 Operating Systems course in IITPKD",
-        repo: "https://github.com/vipul43/CS3110_OS_LAB",
+        work: "https://github.com/vipul43/CS3110_OS_LAB",
         tags: ["OS", "C"],
       },
     ],
   }),
   methods: {
-    handleClick(row) {
-      window.location.href = row.repo;
+    handleClick(val) {
+      window.open(val.work, "_blank");
     },
   },
 };
