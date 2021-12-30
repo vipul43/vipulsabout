@@ -37,6 +37,7 @@
                         </v-btn>
                       </v-card-actions>
                     </div>
+                    <div class="pa-3" v-text="tabCard.cardDate"></div>
                   </div>
                 </v-card>
               </v-col>
@@ -71,6 +72,7 @@ export default {
               cardTitle: "Deep Learning",
               cardSubTitle: "techness-1",
               cardSrc: "/blog/techblog/deeplearning",
+              cardDate: "31-12-2021",
             },
           ],
         },
@@ -85,6 +87,7 @@ export default {
               cardTitle: "Perseverance",
               cardSubTitle: "lifeness-1",
               cardSrc: "/blog/lifeblog/perseverance",
+              cardDate: "31-12-2021",
             },
           ],
         },
