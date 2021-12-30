@@ -1,33 +1,17 @@
 <template>
-  <v-container class="blog-background">
-    <div class="font-weight-light text-h2 text-center">Special 01</div>
-    <ckeditor
-      :editor="editor"
-      v-model="editorData"
-      :config="editorConfig"
-    ></ckeditor>
-  </v-container>
+  <BlogTemplate blogType="ffsplblogs" :blogName="$options.name"></BlogTemplate>
 </template>
 
 <script>
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import BlogTemplate from "../../../components/BlogTemplate.vue";
 
 export default {
-  name: "DeepLearning",
-  data: () => ({
-    admin: true,
-    editor: ClassicEditor,
-    editorData: "",
-    editorConfig: {
-      // The configuration of the editor.
-    },
-  }),
+  name: "Spl01",
+  components: {
+    BlogTemplate,
+  },
 };
 </script>
 
 <style>
-.blog-background {
-  background: url("https://vipul43.sirv.com/vipulsabout/dot-grid.png") repeat;
-  height: 100vh;
-}
 </style>
